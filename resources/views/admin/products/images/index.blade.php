@@ -37,7 +37,7 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="row">
+                    <div class="row"><!--comment-->
                         @foreach($images as $image)
                             <div class="col-sm-4">
                                 <div class="panel panel-default team-player">
