@@ -26,4 +26,24 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    //one User can to have lots of Cart
+    public function cart(){
+        return $this->hasMany(Cart::class);
+    }
+
+    public function getCartAttribute(){
+        $cart = Cart::where('user_id', auth()->user()->id)->where('status', 'active')->first();
+        if($cart){
+            return $cart;
+        }else{
+            $cart = new Cart();
+
+            $cart->status = "active";
+            $cart->user_id = auth()->user()->id;
+            $cart->save();
+            
+            return $cart;
+        }
+    }
 }
