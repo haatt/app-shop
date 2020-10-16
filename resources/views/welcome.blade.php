@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('titlePage','Welcome to my store')
+@section('titlePage','Bienvenido a mi tienda')
 
 @section('styles')
     <style>
@@ -15,7 +15,7 @@
             display: flex;
             flex-wrap: wrap;
         }
-/*
+        /*
         .row > [class*='col-']{
             display: flex;
             flex-direction: column;
@@ -26,16 +26,17 @@
 @section('body-class','landing-page')
 
 @section('content')
-    <div class="header header-filter" style="background-image: url('https://images.unsplash.com/photo-1423655156442-ccc11daa4e99?crop=entropy&dpr=2&fit=crop&fm=jpg&h=750&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450');">
+    <!--div class="header header-filter" style="background-image: url('https://images.unsplash.com/photo-1423655156442-ccc11daa4e99?crop=entropy&dpr=2&fit=crop&fm=jpg&h=750&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450');"-->
+    <div class="header header-filter" style="background-image: url('https://s3-us-west-2.amazonaws.com/wp-mpro-blog/wp-content/uploads/2018/10/26105753/Retail-de-supermercado.png');">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
                     <h1>Rafael Rivera</h1>
-                    <h4>My first store page.</h4>
+                    <!--h4>My first store page.</h4>
                     <br />
                     <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn btn-danger btn-raised btn-lg">
                         <i class="fa fa-play"></i> Watch video
-                    </a>
+                    </a-->
                 </div>
             </div>
         </div>
@@ -85,7 +86,7 @@
             </div-->
 
             <div class="section text-center">
-                <h2 class="title">Products</h2>
+                <h2 class="title">Productos</h2>
 
                 <div class="team">
                     {{$products->links()}}

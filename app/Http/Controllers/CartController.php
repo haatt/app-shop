@@ -13,7 +13,11 @@ class CartController extends Controller
         $cart->status = 'bought';
         $cart->save();
 
-        $message = $cart->status;
+        if($cart)
+            $message = "Tu carrito se ha guardado correctamente";
+        else
+            $message = "Algo salio mal";
+        
         return back()->with(compact('message'));
     }
 }

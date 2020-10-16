@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('titlePage','Product Images')
+@section('titlePage','Editar imagenes')
 
 @section('body-class','product-page')
 
@@ -17,7 +17,7 @@
                 <div class="team" style="margin-top: 0px;">
                     <div class="row">
                         <div class="col-md-4 text-left">
-                            <h3 class="title"><strong>Product: </strong>{{$myProducts->name}}</h3>
+                            <h3 class="title"><strong>Producto: </strong>{{$myProducts->name}}</h3>
                         </div>
                         <form action="" method="post" enctype="multipart/form-data">
                             @csrf
@@ -25,10 +25,10 @@
                                 <input type="file" name="image" id="" class="custom-file-input" style="margin-top: 10px;" 
                                 placeholder="Add new image" required>
                             </div>
-                            <div class="col-sm-1"><button type="submit" class="btn btn-primary btn-xs">Save</button></div>
+                            <div class="col-sm-1"><button type="submit" class="btn btn-primary btn-xs">Guardar</button></div>
                         </form>
                         <div class="col-md-4 text-right" style="padding-top: 20px;">
-                            <a href="/admin/products" class="btn btn-default btn-round">Back</a>
+                            <a href="/admin/products" class="btn btn-default btn-round">Regresar</a>
                         </div>
                     </div>
                     <div class="row text-left">
@@ -49,10 +49,10 @@
                                             @csrf
                                             {{method_field('DELETE')}}
                                             <input type="hidden" name="imgId" value="{{$image->id}}">
-                                            <button type="submit" class="btn btn-danger btn-xs">Delete</button>
+                                            <button type="submit" class="btn btn-danger btn-xs">Eliminar</button>
                                             @if($image->featured == true)
-                                                <button type="button" class="btn btn-success  btn-xs" rel="tooltip" title="Featured image">
-                                                    <i class="material-icons">favorite</i>
+                                                <button type="button" class="btn btn-warning  btn-xs text-center" rel="tooltip" title="Imagen predeterminada">
+                                                    <i class="material-icons">star</i>
                                                 </button>
                                             @else
                                                 <a href="{{'/admin/products/'.$myProducts->id.'/images/select/'.$image->id}}" class="btn btn-primary  btn-xs"

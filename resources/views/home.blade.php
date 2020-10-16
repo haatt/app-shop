@@ -1,12 +1,13 @@
 @extends('layouts.app')
 
-@section('titlePage','Store | Dashboard')
+@section('titlePage','Mi cuenta')
 
 @section('body-class','product-page')
 
 @section('content')
-    <div class="header header-filter" style="background-image: url('https://images.unsplash.com/photo-1423655156442-ccc11daa4e99?crop=entropy&dpr=2&fit=crop&fm=jpg&h=750&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450');">
-       
+    <!--div class="header header-filter" style="background-image: url('https://images.unsplash.com/photo-1423655156442-ccc11daa4e99?crop=entropy&dpr=2&fit=crop&fm=jpg&h=750&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450');"-->
+    <!--div class="header header-filter" style="background-image: url('https://i0.wp.com/www.wisum.mx/blog/wp-content/uploads/2019/03/peter-bond-510614-unsplash.jpg?resize=1920%2C768&ssl=1');"-->
+    <div class="header header-filter" style="background-image: url('{{asset('/img/products-anakel.webp')}}');"></div>
     </div>
 
     <div class="main main-raised" style="margin-top: -200px;">
@@ -17,7 +18,7 @@
                 <div class="team" style="margin-top: 0px;">
                     <div class="row">
                         <div class="col-md-6 text-left">
-                            <h3 class="title">Dashboard</h3>
+                            <h3 class="title">Mi cuenta</h3>
                         </div>
                         <div class="col-md-6 text-right" style="padding-top: 20px;">
                             
@@ -37,42 +38,43 @@
                             <li class="active" >
                                 <a href="#shoppingCart" role="tab" data-toggle="tab">
                                     <i class="material-icons">add_shopping_cart</i>
-                                    Shopping cart
+                                    Carrito
                                 </a>
                             </li>
                             <li>
                                 <a href="#ordersTab" role="tab" data-toggle="tab">
                                     <i class="material-icons">reorder</i>
-                                    Orders
+                                    Ordenes
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <br><br>
-                <div class="row text-left">
-                    Your shopping cart have 
+                <hr>
+                <div class="row text-left text-info">
+                    Tu carrito de compras tiene 
                     {{auth()->user()->cart->cartDetail->count()}}
-                     ithems.
+                     productos.
                 </div>
                 <div class="tab-content gallery row">
                     <div class="tab-pane text-left active" id="shoppingCart">
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Image</th>
-                                    <th>Name</th>
-                                    <th>Price</th>
-                                    <th>Cuantity</th>
-                                    <th>Sub-total</th>
-                                    <th>Modify</th>
-                                    <th>Delete</th>
+                                    <th>Imagen</th>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                    <th>Cantidad</th>
+                                    <th>Subtotal</th>
+                                    <th>Modificar</th>
+                                    <th>Eliminar</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach(auth()->user()->cart->cartDetail as $cartDet)
                                 <tr>
-                                    <td><img src="{{url($cartDet->product->FeaturedImageUrl)}}"  alt="" width="50" srcset=""></td>
+                                    <td class="text-center" ><img src="{{url($cartDet->product->FeaturedImageUrl)}}"  alt="" width="50" srcset=""></td>
                                     <td>
                                         <a href="{{url('/products/'.$cartDet->product->id)}}" target="_blank">{{$cartDet->product->name}}</a>
                                     </td>
@@ -132,7 +134,7 @@
 
                                     <button type="submit" class="btn btn-sm btn-primary">
                                     <i class="material-icons">done</i>
-                                        purchase
+                                        Comprar
                                     </button>
                                 </form>
                             </div>

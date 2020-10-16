@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('titlePage','Store | Dashboard')
+@section('titlePage', $product->name)
 
 @section('body-class','profile-page')
 
@@ -121,7 +121,7 @@
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
             <form action="{{url('/cart')}}" method="post">
-            @csrf
+                @csrf
                 <input type="hidden" name="idProduc" value="{{$product->id}}">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>

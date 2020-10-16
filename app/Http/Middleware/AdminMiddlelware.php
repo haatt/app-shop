@@ -15,7 +15,7 @@ class AdminMiddlelware
      */
     public function handle($request, Closure $next)
     {
-        if(!(auth()->user()->level == 1)){
+        if(auth()->user()->level != 1){
             return redirect('/login');
         }
         return $next($request);

@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('titlePage','Welcome to my store')
+@section('titlePage','Agregar producto')
 
 @section('body-class','product-page')
 
 @section('content')
-    <div class="header header-filter" style="background-image: url('https://images.unsplash.com/photo-1423655156442-ccc11daa4e99?crop=entropy&dpr=2&fit=crop&fm=jpg&h=750&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450');">
+    <div class="header header-filter" style="background-image: url({{asset('/img/products-anakel.webp')}});">
        
     </div>
 
@@ -17,11 +17,11 @@
                 <div class="team" style="margin-top: 0px;">
                     <div class="row">
                         <div class="col-md-6 text-left">
-                            <h3 class="title">Add new product</h3>
+                            <h3 class="title">Agregar producto</h3>
                         </div>
-                        <div class="col-md-6 text-right" style="padding-top: 20px;">
+                        <!--div class="col-md-6 text-right" style="padding-top: 20px;">
                             <a href="/admin/products/create" class="btn btn-primary btn-round">Add product</a>
-                        </div>
+                        </div-->
                     </div>
 
                     @if($errors->any())
@@ -29,9 +29,9 @@
                         <div class="container-fluid text-left">
                             <!--div class="alert-icon"><i class="material-icons">error_outline</i></div-->
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true"><i class="material-icons">clear</i></span>
+                                <span aria-hidden="true"><i class="material-icons">Cerrar</i></span>
                             </button>
-                            <b>!You have {{$errors->count()}} errors!</b><br>
+                            <b>!Tienes {{$errors->count()}} errores!</b><br>
                             @foreach($errors->all() as $error)
                                 <li>{{$error}}</li>
                             @endforeach
@@ -45,30 +45,30 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group label-floating">
-                                    <label for="" class="control-label">Name</label>
+                                    <label for="" class="control-label">Nombre</label>
                                     <input type="text" name="name" value="{{old('name')}}" id="" class="form-control">
                                 </div>
                             </div>
                             <div class="col-sm-6">
                                 <div class="form-group label-floating">
-                                    <label for="" class="control-label">Price</label>
+                                    <label for="" class="control-label">Precio</label>
                                     <input type="number" name="selling_price" value="{{old('selling_price')}}" id="" step="0.01" class="form-control" pattern="">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group label-floating">
-                            <label for="" class="control-label">Description</label>
+                            <label for="" class="control-label">Descripcion</label>
                             <input type="text" name="description" value="{{old('description')}}" id="" class="form-control">
                         </div>
                         <div class="form-group label-floating">
-                            <label for="" class="control-label">Long description</label>
+                            <label for="" class="control-label">Descripción larga</label>
                             <textarea name="long_description" id="" rows="1" class="form-control"
                         placeholder="">{{old('long_description')}}</textarea>
                         </div>
 
                         <div class="form-group text-rigth">
-                            <button class="btn btn-primary">Save product</button>
-                            <a href="{{url('/admin/products/')}}" class="btn btn-default">Return</a>
+                            <button class="btn btn-primary">Guardar producto</button>
+                            <a href="{{url('/admin/products/')}}" class="btn btn-default">Regresar</a>
                         </div>
                         
                         </form>

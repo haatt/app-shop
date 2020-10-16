@@ -12,7 +12,9 @@ class CartDetailController extends Controller
     public function store(Request $request){
 
         $description = ([
-            "idProduc.required" => "Pleace do not move the HTML parameters"
+            "idProduc.required" => "Pleace do not move the HTML parameters",
+            "producCant.required" => "por favor ingrese la cantidad",
+            "producCant.min" => "ingrese un valor mayor a 0"
         ]);
 
         $validations = ([
@@ -21,9 +23,12 @@ class CartDetailController extends Controller
         ]);
 
         $this->validate($request,$validations,$description);
-        $cartDet = CartDetail::where('cart_id',auth()->user()->Cart->id)->where('product_id',$request->idProduc)->first();
+
+        $cartDet = CartDetail::where('cart_id', auth()->user()->Cart->id )
+            ->where('product_id', $request->idProduc )
+        ->first();
         
-        $message = "Added to your shopping cart";
+        $message = "Agregado a tu carrito de compras";
 
         if($cartDet && $request->producCant >= 1){
             $cartDet->cuantity = ($cartDet->cuantity + $request->producCant);
@@ -48,7 +53,7 @@ class CartDetailController extends Controller
         
         if($cartDet->cart_id == auth()->user()->Cart->id){
             $cartDet->delete();
-            $message = "Deleted item";
+            $message = "Elemento eliminado";
         }
         return back()->with(compact('message'));
     }

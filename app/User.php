@@ -33,7 +33,7 @@ class User extends Authenticatable
     }
 
     public function getCartAttribute(){
-        $cart = Cart::where('user_id', auth()->user()->id)->where('status', 'active')->first();
+        $cart = Cart::where('user_id', auth()->user()->id )->where('status', 'active')->first();
         if($cart){
             return $cart;
         }else{

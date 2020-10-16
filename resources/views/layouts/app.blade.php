@@ -33,7 +33,7 @@
 		            <span class="icon-bar"></span>
 		            <span class="icon-bar"></span>
         		</button>
-        		<a class="navbar-brand" href="{{url('/')}}">My store online</a>
+        		<a class="navbar-brand" href="{{url('/')}}">Productos</a>
         	</div>
 
         	<div class="collapse navbar-collapse" id="navigation-example">
@@ -55,9 +55,9 @@
                         <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <li class="dropdown-item">
                                 <a  href="{{ route('logout') }}"
-                                                                onclick="event.preventDefault();
-                                                                document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+									onclick="event.preventDefault();
+									document.getElementById('logout-form').submit();">
+                                    {{ __('Salir') }}
                                 </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
@@ -68,7 +68,7 @@
 							</li>
                             @if(auth()->user()->level==1)
                                 <li class="dropdown-item">
-                                    <a href="{{url('/admin/products')}}"> Admin Products</a>
+                                    <a href="{{url('/admin/products')}}"> Administrar Productos</a>
                                 </li>
                             @endif
                         </ul>
